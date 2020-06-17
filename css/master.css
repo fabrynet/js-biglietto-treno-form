@@ -8,6 +8,9 @@ body {
 main {
   width: 800px;
 }
+.form {
+  margin: 20px;
+}
 .input {
   flex-basis: 70%;
   display: flex;
@@ -17,7 +20,11 @@ main {
 .input label {
   flex-basis: 30%;
 }
-.biglietto {
-  opacity: 0;
+.ticket {
+  opacity: 1;
   transition: all 0.5s;
+  margin: 20px;
+}
+.ticket table {
+  border: 1px solid black;
 }
