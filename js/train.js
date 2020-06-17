@@ -29,12 +29,12 @@ makeTicket.addEventListener('click', function() {
   var sale1 = 0.8;
   var sale2 = 0.6;
 
-  if (category == "underage") {
-    price = km * priceKm * sale1;
-  } else if (category == "over65") {
-    price = km * priceKm * sale2;
+  if (category == "Minorenne") {
+    price = (km * priceKm * sale1).toFixed(2);
+  } else if (category == "Over 65") {
+    price = (km * priceKm * sale2).toFixed(2);
   } else {
-    price = km * priceKm;
+    price = (km * priceKm).toFixed(2);
   }
 
   var minTrainNumber = 10000;
