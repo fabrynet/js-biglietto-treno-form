@@ -29,44 +29,58 @@ makeTicket.addEventListener('click', function() {
   var sale1 = 0.8;
   var sale2 = 0.6;
 
-  if (category == "Minorenne") {
-    price = (km * priceKm * sale1).toFixed(2);
-  } else if (category == "Over 65") {
-    price = (km * priceKm * sale2).toFixed(2);
+  // controllo compilazione campi del form
+  if (name == "" || surname == "" || km == "") {
+    alert("Attenzione compila tutti i campi");
   } else {
-    price = (km * priceKm).toFixed(2);
+
+    if (category == "Minorenne") {
+      price = (km * priceKm * sale1).toFixed(2);
+    } else if (category == "Over 65") {
+      price = (km * priceKm * sale2).toFixed(2);
+    } else {
+      price = (km * priceKm).toFixed(2);
+    }
+
+    var minTrainNumber = 10000;
+    var maxTrainNumber = 90000;
+    var minTrainCarriage = 1;
+    var maxTrainCarriage = 15;
+    var trainNumber = Math.floor(Math.random() * (maxTrainNumber - minTrainNumber + 1) + minTrainNumber);
+    var trainCarriage = Math.floor(Math.random() * (maxTrainCarriage - minTrainCarriage + 1) + minTrainCarriage);
+
+    var passenger = surname + " " + name;
+    document.getElementById('passenger').innerHTML = passenger;
+    document.getElementById('trainNumber').innerHTML = trainNumber;
+    document.getElementById('trainCarriage').innerHTML = trainCarriage;
+    document.getElementById('price').innerHTML = price;
+    document.getElementById('categoryTicket').innerHTML = category;
+
+    // animazioni effetti comparsa e scomparsa
+    document.getElementById('form').className = "hidden";
+    document.getElementById('title').innerHTML = "Ecco il tuo biglietto";
+    document.getElementById('ticket').className = "show";
+
+    console.log(name);
+    console.log(surname);
+    console.log(km);
+    console.log(category);
+    console.log(price);
+    console.log(trainNumber);
+    console.log(trainCarriage);
+
   }
-
-  var minTrainNumber = 10000;
-  var maxTrainNumber = 90000;
-  var minTrainCarriage = 1;
-  var maxTrainCarriage = 15;
-  var trainNumber = Math.floor(Math.random() * (maxTrainNumber - minTrainNumber + 1) + minTrainNumber);
-  var trainCarriage = Math.floor(Math.random() * (maxTrainCarriage - minTrainCarriage + 1) + minTrainCarriage);
-
-  var passenger = surname + " " + name;
-  document.getElementById('passenger').innerHTML = passenger;
-  document.getElementById('trainNumber').innerHTML = trainNumber;
-  document.getElementById('trainCarriage').innerHTML = trainCarriage;
-  document.getElementById('price').innerHTML = price;
-  document.getElementById('categoryTicket').innerHTML = category;
-
-  document.getElementById('ticket').className = "show";
-
-  console.log(name);
-  console.log(surname);
-  console.log(km);
-  console.log(category);
-  console.log(price);
-  console.log(trainNumber);
-  console.log(trainCarriage);
 
 });
 
 cancelTicket.addEventListener('click', function() {
 
+  // animazioni effetti comparsa e scomparsa
   document.getElementById('ticket').className = "hidden";
+  document.getElementById('title').innerHTML = "Acquista il biglietto online";
+  document.getElementById('form').className = "show";
 
+  // reset del form
   document.getElementById('name').value = "";
   document.getElementById('surname').value = "";
   document.getElementById('km').value = "";
