@@ -13,8 +13,20 @@ Numero carrozza
 Prezzo calcolato
 Categoria selezionata dall'utente
 */
-var nome;
-var km;
-var prezzo;
-var treno;
-var carrozza;
+
+var makeTicket = document.getElementById('makeTicket');
+var cancel = document.getElementById('cancel');
+var price;
+var trainNumber;
+var trainCarriage;
+
+makeTicket.addEventListener('click', function() {
+  var name = document.getElementById('name').value;
+  var surname = document.getElementById('surname').value;
+  var km = document.getElementById('km').value;
+  var category = document.getElementById('category').value;
+  console.log(name);
+  console.log(surname);
+  console.log(km);
+  console.log(category);
+});
