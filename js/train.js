@@ -15,7 +15,7 @@ Categoria selezionata dall'utente
 */
 
 var makeTicket = document.getElementById('makeTicket');
-var cancel = document.getElementById('cancel');
+var cancelTicket = document.getElementById('cancelTicket');
 
 makeTicket.addEventListener('click', function() {
 
@@ -51,6 +51,8 @@ makeTicket.addEventListener('click', function() {
   document.getElementById('price').innerHTML = price;
   document.getElementById('categoryTicket').innerHTML = category;
 
+  document.getElementById('ticket').className = "show";
+
   console.log(name);
   console.log(surname);
   console.log(km);
@@ -58,5 +60,16 @@ makeTicket.addEventListener('click', function() {
   console.log(price);
   console.log(trainNumber);
   console.log(trainCarriage);
+
+});
+
+cancelTicket.addEventListener('click', function() {
+
+  document.getElementById('ticket').className = "hidden";
+
+  document.getElementById('name').value = "";
+  document.getElementById('surname').value = "";
+  document.getElementById('km').value = "";
+  document.getElementById('category').value = "Maggiorenne";
 
 });
